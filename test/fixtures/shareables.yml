@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shareable_name: MyString
+  good_or_service: MyString
+  user_id: 1
+
+two:
+  shareable_name: MyString
+  good_or_service: MyString
+  user_id: 1

@@ -1,0 +1,2 @@
+class Shareable < ApplicationRecord
+end

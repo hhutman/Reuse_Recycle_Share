@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shareable_id: 1
+  requester_id: 1
+  date_attribute: 1
+  approved: false
+  completed: false
+  timestamp: MyString
+
+two:
+  shareable_id: 1
+  requester_id: 1
+  date_attribute: 1
+  approved: false
+  completed: false
+  timestamp: MyString
