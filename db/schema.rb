@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 2019_03_09_195333) do
     t.string "product_name"
     t.boolean "good"
     t.boolean "service"
-    t.bigint "buildings_id"
-    t.bigint "users_id"
+    t.bigint "building_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["buildings_id"], name: "index_shareables_on_buildings_id"
-    t.index ["users_id"], name: "index_shareables_on_users_id"
+    t.index ["building_id"], name: "index_shareables_on_building_id"
+    t.index ["user_id"], name: "index_shareables_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -39,14 +39,14 @@ ActiveRecord::Schema.define(version: 2019_03_09_195333) do
     t.boolean "approved"
     t.boolean "completed"
     t.string "recipient"
-    t.bigint "users_id"
-    t.bigint "buildings_id"
-    t.bigint "shareables_id"
+    t.bigint "user_id"
+    t.bigint "building_id"
+    t.bigint "shareable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["buildings_id"], name: "index_transactions_on_buildings_id"
-    t.index ["shareables_id"], name: "index_transactions_on_shareables_id"
-    t.index ["users_id"], name: "index_transactions_on_users_id"
+    t.index ["building_id"], name: "index_transactions_on_building_id"
+    t.index ["shareable_id"], name: "index_transactions_on_shareable_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,16 +55,16 @@ ActiveRecord::Schema.define(version: 2019_03_09_195333) do
     t.string "last_name"
     t.string "picture_url"
     t.string "utility_bill_url"
-    t.bigint "buildings_id"
+    t.bigint "building_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["buildings_id"], name: "index_users_on_buildings_id"
+    t.index ["building_id"], name: "index_users_on_building_id"
   end
 
-  add_foreign_key "shareables", "buildings", column: "buildings_id"
-  add_foreign_key "shareables", "users", column: "users_id"
-  add_foreign_key "transactions", "buildings", column: "buildings_id"
-  add_foreign_key "transactions", "shareables", column: "shareables_id"
-  add_foreign_key "transactions", "users", column: "users_id"
-  add_foreign_key "users", "buildings", column: "buildings_id"
+  add_foreign_key "shareables", "buildings"
+  add_foreign_key "shareables", "users"
+  add_foreign_key "transactions", "buildings"
+  add_foreign_key "transactions", "shareables"
+  add_foreign_key "transactions", "users"
+  add_foreign_key "users", "buildings"
 end

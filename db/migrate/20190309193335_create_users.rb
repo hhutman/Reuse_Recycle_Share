@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name
       t.string :picture_url
       t.string :utility_bill_url
-      t.references :buildings, foreign_key: true
+      t.references :building, foreign_key: true
 
       t.timestamps
     end
