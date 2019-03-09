@@ -1,13 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  firstname: MyString
-  lastname: MyString
-  utilitybill: MyString
-  pictureid: MyString
+  full_name: MyString
+  first_name: MyString
+  last_name: MyString
+  picture_url: MyString
+  utility_bill_url: MyString
+  building: one
 
 two:
-  firstname: MyString
-  lastname: MyString
-  utilitybill: MyString
-  pictureid: MyString
+  full_name: MyString
+  first_name: MyString
+  last_name: MyString
+  picture_url: MyString
+  utility_bill_url: MyString
+  building: two

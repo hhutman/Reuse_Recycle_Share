@@ -1,17 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  shareable_id: 1
-  requester_id: 1
-  date_attribute: 1
+  transaction_name: MyString
   approved: false
   completed: false
-  timestamp: MyString
+  recipient: MyString
+  user: one
+  building: one
+  shareable: one
 
 two:
-  shareable_id: 1
-  requester_id: 1
-  date_attribute: 1
+  transaction_name: MyString
   approved: false
   completed: false
-  timestamp: MyString
+  recipient: MyString
+  user: two
+  building: two
+  shareable: two

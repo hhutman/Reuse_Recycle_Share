@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  shareable_name: MyString
-  good_or_service: MyString
-  user_id: 1
+  product_name: MyString
+  good: false
+  service: false
+  building: one
+  user: one
 
 two:
-  shareable_name: MyString
-  good_or_service: MyString
-  user_id: 1
+  product_name: MyString
+  good: false
+  service: false
+  building: two
+  user: two

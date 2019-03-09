@@ -1,8 +1,8 @@
 class CreateBuildings < ActiveRecord::Migration[5.2]
-  def change
+    def change
     create_table :buildings do |t|
-      t.string   :building_name
-      t.string   :address
+      t.string :building_name
+      t.string :address
 
       t.timestamps
     end
