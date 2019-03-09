@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_09_161633) do
+ActiveRecord::Schema.define(version: 2019_03_09_195333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,31 +23,48 @@ ActiveRecord::Schema.define(version: 2019_03_09_161633) do
   end
 
   create_table "shareables", force: :cascade do |t|
-    t.string "shareable_name"
-    t.string "good_or_service"
-    t.integer "user_id"
+    t.string "product_name"
+    t.boolean "good"
+    t.boolean "service"
+    t.bigint "buildings_id"
+    t.bigint "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["buildings_id"], name: "index_shareables_on_buildings_id"
+    t.index ["users_id"], name: "index_shareables_on_users_id"
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer "shareable_id"
-    t.integer "requester_id"
-    t.integer "date_attribute"
+    t.string "transaction_name"
     t.boolean "approved"
     t.boolean "completed"
-    t.string "timestamp"
+    t.string "recipient"
+    t.bigint "users_id"
+    t.bigint "buildings_id"
+    t.bigint "shareables_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["buildings_id"], name: "index_transactions_on_buildings_id"
+    t.index ["shareables_id"], name: "index_transactions_on_shareables_id"
+    t.index ["users_id"], name: "index_transactions_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "full_name"
     t.string "first_name"
     t.string "last_name"
-    t.string "utility_bill"
-    t.string "picture_id"
+    t.string "picture_url"
+    t.string "utility_bill_url"
+    t.bigint "buildings_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["buildings_id"], name: "index_users_on_buildings_id"
   end
 
+  add_foreign_key "shareables", "buildings", column: "buildings_id"
+  add_foreign_key "shareables", "users", column: "users_id"
+  add_foreign_key "transactions", "buildings", column: "buildings_id"
+  add_foreign_key "transactions", "shareables", column: "shareables_id"
+  add_foreign_key "transactions", "users", column: "users_id"
+  add_foreign_key "users", "buildings", column: "buildings_id"
 end
