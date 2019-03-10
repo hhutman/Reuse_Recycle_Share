@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'controllername/new'
   get 'controllername/create'
 
-  
+
   get 'shareables/new'
   get 'shareables/create'
 
