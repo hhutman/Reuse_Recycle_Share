@@ -1,5 +1,5 @@
-class BuildingController < ApplicationController
-  
+class BuildingsController < ApplicationController
+
 
   def show
   end
