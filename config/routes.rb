@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'shareables/new'
+  get 'shareables/create'
   get 'users/index'
   get 'users/show'
   resources :user
