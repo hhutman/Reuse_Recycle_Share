@@ -14,3 +14,7 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener("DOMContentLoaded", _ => {
+  if (document.querySelector(".chat")) window.chat = new Chat();
+});
