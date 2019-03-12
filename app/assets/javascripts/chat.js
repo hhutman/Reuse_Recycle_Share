@@ -78,6 +78,3 @@ class Chat {
     this.renderMessages();
   };
 }
-
-
-module.exports=Chat
