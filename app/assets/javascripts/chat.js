@@ -78,3 +78,7 @@ class Chat {
     this.renderMessages();
   };
 }
+
+document.addEventListener("DOMContentLoaded", _ => {
+  if (document.querySelector(".chat")) window.chat = new Chat();
+});
