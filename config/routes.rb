@@ -1,8 +1,21 @@
 Rails.application.routes.draw do
 
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }  do
+    authenticated :users do
+      root 'users#index', as: :authenticated_root
+    end
 
-  devise_for :users
-  resources :profiles, only: [:show, :new, :create]
+    unauthenticated do
+      root 'new_user_registration#new', as: :unauthenticated_root
+    end
+  end
+
+  resources :users, only: [:show]
+
+  
   resources :buildings, only: [:index, :show, :new, :create]
   resources :tokens, only: [:create]
   get 'controllername/building'
@@ -11,7 +24,6 @@ Rails.application.routes.draw do
   get 'shareables/new'
   get 'shareables/create'
   get 'hello_world', to: 'hello_world#index'
-  root 'home#index'
 
   get 'chats/show'
 
