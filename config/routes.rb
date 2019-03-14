@@ -1,23 +1,24 @@
 Rails.application.routes.draw do
+  root "buildings#index"
+    devise_for :users
 
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations'
-  }  do
-    authenticated :users do
-      root 'users#index', as: :authenticated_root
-    end
+  # devise_for :users, controllers: {
+  #   sessions: 'users/sessions',
+  #   registrations: 'users/registrations'
+  # }  do
+  #   authenticated :users do
+  #     root 'users#index', as: :authenticated_root
+  #   end
 
-    unauthenticated do
-      root 'new_user_registration#new', as: :unauthenticated_root
-    end
-  end
+  #   unauthenticated do
+  #     root 'new_user_registration#new', as: :unauthenticated_root
+  #   end
+  # end
 
   resources :users, only: [:show]
-
-  
   resources :buildings, only: [:index, :show, :new, :create]
   resources :tokens, only: [:create]
+  resources :profiles, only: [:show, :new, :create]
   get 'controllername/building'
   get 'controllername/new'
   get 'controllername/create'

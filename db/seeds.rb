@@ -8,10 +8,12 @@
 User.destroy_all
 Building.destroy_all
 
-b = Building.create(
-  building_name: Faker::Name.first_name,
-  address: Faker::Address.street_address
-)
+25.times do
+  Building.create(
+   building_name: Faker::Name.first_name,
+   address: Faker::Address.street_address
+ )
+  end
 
 25.times do
   User.create(

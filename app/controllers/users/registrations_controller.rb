@@ -15,8 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if @user.save
       sign_in @user 
       redirect_to @user
-    else
-      byebug 
+    else 
       redirect_back(fallback_location: root_path)
     end
   end
