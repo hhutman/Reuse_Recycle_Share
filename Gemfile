@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-
+gem 'hirb'
 gem 'dotenv'
 gem 'bourbon', '~> 5.0'
 gem 'devise'

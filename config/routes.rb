@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  resources :goods
+  resources :tasks
+  resources :services
   devise_for :users
   resources :profiles, only: [:show, :new, :create]
   resources :buildings, only: [:index, :show, :new, :create]

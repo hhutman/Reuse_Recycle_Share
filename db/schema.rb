@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_10_173636) do
+ActiveRecord::Schema.define(version: 2019_03_13_215146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 2019_03_10_173636) do
   create_table "buildings", force: :cascade do |t|
     t.string "building_name"
     t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "goods", force: :cascade do |t|
+    t.string "description"
+    t.string "availability"
+    t.string "more_information"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,6 +39,14 @@ ActiveRecord::Schema.define(version: 2019_03_10_173636) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "services", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "availablity"
+    t.string "more_information"
+  end
+
   create_table "shareables", force: :cascade do |t|
     t.string "product_name"
     t.boolean "good"
@@ -41,6 +57,12 @@ ActiveRecord::Schema.define(version: 2019_03_10_173636) do
     t.datetime "updated_at", null: false
     t.index ["building_id"], name: "index_shareables_on_building_id"
     t.index ["user_id"], name: "index_shareables_on_user_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "transactions", force: :cascade do |t|
