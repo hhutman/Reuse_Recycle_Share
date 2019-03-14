@@ -9,13 +9,11 @@ Rails.application.routes.draw do
   #   authenticated :users do
   #     root 'users#index', as: :authenticated_root
   #   end
-
-  #   unauthenticated do
-  #     root 'new_user_registration#new', as: :unauthenticated_root
-  #   end
-  # end
-
-  resources :users, only: [:show]
+  resources :goods
+  resources :tasks
+  resources :services
+  devise_for :users
+  resources :profiles, only: [:show, :new, :create]
   resources :buildings, only: [:index, :show, :new, :create]
   resources :tokens, only: [:create]
   resources :profiles, only: [:show, :new, :create]
