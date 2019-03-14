@@ -1,18 +1,18 @@
 class ProfilesController < ApplicationController
-  def show 
-    @profile = Profile.find(params[:id])
-  end 
   def new 
-    @profile = Profile.new 
-  end 
+    @profile = Profile.new
+  end
   def create 
     @profile = Profile.new(profile_params)
     @profile.user = current_user
     @profile.save
+    redirect_to buildings_path
   end 
-  
-  private
+  def show 
+    @profile = current_user.profile
+  end 
+  private 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name)
-  end
+    params.require(:profile).permit(:first_name, :last_name, :address, :license, :bill) 
+  end  
 end 

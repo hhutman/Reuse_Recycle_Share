@@ -1,2 +1,18 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.first_name %><%= @user.last_name%></h1>
+<p> <%= @user.email %> </p>
+<% if @user.license.attached? %>
+  <%= image_tag @user.license, width: 200 %>
+<% else %>
+  <p>You didnt upload a license</p>
+<% end %> 
+<% if @user.bill.attached? %>
+  <%= image_tag @user.bill, width: 200 %>
+<% else %>
+  <p>You didnt upload a bill</p>
+<% end %> 
+
+<% if @user.building %>
+  <p>Building: <%= @user.building.building_name %></p>
+<% else %>
+  <p>You dont have a building</p>
+<% end %> 

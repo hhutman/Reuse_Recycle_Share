@@ -1,1 +1,24 @@
-<h1> YAy </h1>
+<h5>Create your profile</h5>
+<%= form_with model: @profile do |f| %>
+  <div>
+    <%= f.label 'First Name'%>
+    <%= f.text_field :first_name %>
+  </div>
+  <div>
+    <%= f.label 'Last Name'%>
+    <%= f.text_field :last_name %>
+  </div>
+  <div>
+    <%= f.label 'Address'%>
+    <%= f.text_field :address %>
+  </div>
+  <div>
+    <%= f.label 'Picture Id'%>
+    <%= f.file_field :license %>
+  </div>
+  <div>
+    <%= f.label 'Utility Bill'%>
+    <%= f.file_field :bill %>
+  </div>
+  <%= f.submit 'Create Profile!' %>
+<% end %>

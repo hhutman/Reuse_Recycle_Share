@@ -5,16 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first
+User.destroy_all
+Building.destroy_all
 
-b = Building.create(
-  building_name: Faker::Name.first_name,
-  address: Faker::Address.street_address
-)
+25.times do
+  Building.create(
+   building_name: Faker::Name.first_name,
+   address: Faker::Address.street_address
+ )
+  end
 
 25.times do
   User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  building: b
+  building_id: b.id
 )
 end
+
+puts "Things created"
