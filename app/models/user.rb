@@ -6,5 +6,7 @@ class User < ApplicationRecord
   has_one :profile
   belongs_to :building, optional: true
   has_many :shareable
-  
+  def profile
+    super || create_profile
+  end
 end
