@@ -2,10 +2,8 @@ class BuildingsController < ApplicationController
   before_action :validate_profile
 
   def show
-  end
-
-  def index
-    @buildings = Building.all
+    @current_user = current_user 
+    @building = current_user.buildings.first
   end
   private
   def validate_profile

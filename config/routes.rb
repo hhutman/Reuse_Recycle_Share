@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "buildings#index"
+  root "home#index"
 
   # devise_for :users, controllers: {
   #   sessions: 'users/sessions',
@@ -7,15 +7,16 @@ Rails.application.routes.draw do
   # }  do
   #   authenticated :users do
   #     root 'users#index', as: :authenticated_root
+  #     buildings#index     
   #   end
-  resources :goods
-  resources :tasks
-  resources :services
+  resources  :goods
+  resources  :tasks
+  resources  :services
   devise_for :users
-  resources :profiles, only: [:show, :new, :create]
-  resources :buildings, only: [:index, :show, :new, :create]
-  resources :tokens, only: [:create]
-  resources :profiles, only: [:show, :new, :create]
+  resources  :profiles, only: [:show, :new, :create]
+  resources  :buildings, only: [:show]
+  resources  :tokens, only: [:create]
+  resources  :profiles, only: [:show, :new, :create]
   get 'controllername/building'
   get 'controllername/new'
   get 'controllername/create'
