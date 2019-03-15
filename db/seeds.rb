@@ -34,11 +34,11 @@ tester = User.create(  first_name: "tester",
 
 user = User.first
 5.times do
-  Good.create(description: "things", availability: "tomorrow", more_information: "nope", is_offer: false, user: tester)
+  Good.create(description: "things", availability: "tomorrow", more_information: "nope", is_offer: false, user_id: tester.id)
 end
 
 5.times do
-  Good.create(description: "need", availability: "yesterday", more_information: "lots", is_offer: true, user: tester)
+  Good.create(description: "need", availability: "yesterday", more_information: "lots", is_offer: true, user_id: tester.id)
 end
 
 puts "Things created"

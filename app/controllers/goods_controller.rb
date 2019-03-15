@@ -5,6 +5,10 @@ class GoodsController < ApplicationController
   # GET /goods.json
   def index
     @goods = Good.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @goods }
+    end
   end
 
   # GET /goods/1
@@ -19,14 +23,17 @@ class GoodsController < ApplicationController
 
   # GET /goods/1/edit
   def edit
+    render json: @good
   end
 
   # POST /goods
   # POST /goods.json
   def create
     @good = Good.new(good_params)
+    @good.user = current_user
 
     respond_to do |format|
+
       if @good.save
         format.html { redirect_to @good, notice: 'Good was successfully created.' }
         format.json { render :show, status: :created, location: @good }
@@ -43,7 +50,7 @@ class GoodsController < ApplicationController
     respond_to do |format|
       if @good.update(good_params)
         format.html { redirect_to @good, notice: 'Good was successfully updated.' }
-        format.json { render :show, status: :ok, location: @good }
+        format.json { render json: Good.all }
       else
         format.html { render :edit }
         format.json { render json: @good.errors, status: :unprocessable_entity }

@@ -3,35 +3,22 @@
 <h1>100 SE 2nd St, Miami, FL 33131</h1>
 <h1>Goods: Offered & Needed</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Availability</th>
-      <th>More information</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @goods.each do |good| %>
-      <tr>
-        <td><%= good.description %></td>
-        <td><%= good.availability %></td>
-        <td><%= good.more_information %></td>
-
-        <td><%= link_to 'Edit', edit_good_path(good) %></td>
-        <td><%= link_to 'Destroy', good, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-
-
-<%= link_to 'New Good', new_good_path %>
-
 
 <%= react_component("Goods", props: { goods: @goods }, prerender: false) %>
+
+
+
+<!-- <tbody>
+  <% @goods.each do |good| %>
+    <tr>
+      <td><%= good.description %></td>
+      <td><%= good.availability %></td>
+      <td><%= good.more_information %></td>
+      <td><%= link_to 'Edit', edit_good_path(good) %></td>
+      <td><%= link_to 'Destroy', good, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+<br> -->
