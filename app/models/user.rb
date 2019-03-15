@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one :profile
-  belongs_to :building, optional: true
+  has_many :user_buildings
+  has_many :buildings, through: :user_buildings
   has_many :shareable
   def profile
     super || create_profile

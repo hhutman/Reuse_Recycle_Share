@@ -13,7 +13,16 @@
   </head>
 
   <body>
-      <div class="container">
+    <div class="container">
+      <nav id="navigation">
+        <% if current_user && current_user.buildings.any? %>
+          <%= link_to "Buildings", building_path(current_user.buildings.first) %>
+          <%= link_to "Goods", goods_path %>
+          <%= link_to "Services", services_path %>
+          <%= link_to "My Profile", profile_path(current_user.profile) %>
+          <%= link_to "Chat!", chats_show_path %>
+        <% end %>
+      </nav>
     <%= yield %>
     </div>
 
