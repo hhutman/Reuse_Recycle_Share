@@ -20,24 +20,25 @@ Building.destroy_all
   User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  building_id: b.id
+  building_id: Building.all.sample.id
 )
 end
 
-User.create(  first_name: "tester",
-  last_name: "McTester",
-  email: "test@email.com",
-  password: "password"
-)
+tester = User.create(  first_name: "tester",
+          last_name: "McTester",
+          email: "test@email.com",
+          password: "password",
+          building_id: Building.first.id
+        )
 
 
 user = User.first
 5.times do
-  Good.create(description: "things", availaility: "tomorrow", more_information: "nope", is_offer: false)
+  Good.create(description: "things", availability: "tomorrow", more_information: "nope", is_offer: false, user: tester)
 end
 
 5.times do
-  Good.create(description: "need", availaility: "yesterday", more_information: "lots", is_offer: true)
+  Good.create(description: "need", availability: "yesterday", more_information: "lots", is_offer: true, user: tester)
 end
 
 puts "Things created"
