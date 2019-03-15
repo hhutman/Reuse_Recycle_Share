@@ -3,8 +3,10 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     if current_user.profile.nil? 
       new_profile_path
+    elsif current_user.profile && current_user.buildings.any?
+      building_path(current_user.buildings.first)
     else 
-      buildings_path
+      redirect_to new_profile_path
     end
   end
 end
