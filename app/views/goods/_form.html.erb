@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    I <%= form.select :is_offer, [[ "offer", true], [ "need", false]], {}, class: "d-inline" %> this
+  </div>
+
+  <div class="field">
     <%= form.label :description %>
     <%= form.text_field :description %>
   </div>

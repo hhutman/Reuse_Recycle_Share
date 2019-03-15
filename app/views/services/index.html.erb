@@ -2,12 +2,12 @@
 
 <h1>100 SE 2nd St, Miami, FL 33131</h1>
 
-<h1>Services: Offered & Needed</h1>
+<h1>Services</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Description</th>
+      <th></th>
       <th colspan=".10"></th>
     </tr>
   </thead>
@@ -19,7 +19,7 @@
         <td><%= service.description %></td>
 
 
-        
+
         <td><%= link_to 'Edit', edit_service_path(service) %></td>
         <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
