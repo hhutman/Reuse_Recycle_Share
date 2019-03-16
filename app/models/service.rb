@@ -1,5 +1,5 @@
 class Service < ApplicationRecord
-
+  
   def change
     create_table :services do |t|
       t.string :description

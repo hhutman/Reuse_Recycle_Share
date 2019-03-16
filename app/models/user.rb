@@ -7,7 +7,5 @@ class User < ApplicationRecord
   has_many :user_buildings
   has_many :buildings, through: :user_buildings
   has_many :shareable
-  def profile
-    super || create_profile
-  end
+  has_many :goods, through: :shareable
 end
