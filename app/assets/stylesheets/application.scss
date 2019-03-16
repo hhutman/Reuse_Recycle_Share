@@ -2,6 +2,8 @@
 // ./app/assets/stylesheets/application.scss
 @import 'bourbon';
 @import 'base/base';
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
 
 .container {
   margin: 0 auto;
