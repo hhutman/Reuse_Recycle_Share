@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_15_002913) do
+ActiveRecord::Schema.define(version: 2019_03_16_163534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 2019_03_15_002913) do
     t.string "more_information"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "shareable_id"
+    t.index ["shareable_id"], name: "index_goods_on_shareable_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -67,6 +69,8 @@ ActiveRecord::Schema.define(version: 2019_03_15_002913) do
     t.datetime "updated_at", null: false
     t.string "availablity"
     t.string "more_information"
+    t.bigint "shareable_id"
+    t.index ["shareable_id"], name: "index_services_on_shareable_id"
   end
 
   create_table "shareables", force: :cascade do |t|
@@ -125,7 +129,9 @@ ActiveRecord::Schema.define(version: 2019_03_15_002913) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "goods", "shareables"
   add_foreign_key "profiles", "users"
+  add_foreign_key "services", "shareables"
   add_foreign_key "shareables", "buildings"
   add_foreign_key "shareables", "users"
   add_foreign_key "transactions", "buildings"

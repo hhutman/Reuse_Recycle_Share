@@ -1,5 +1,5 @@
 class Good < ApplicationRecord
-
+  belongs_to :shareable
 
   def change
     create_table :good do |t|
