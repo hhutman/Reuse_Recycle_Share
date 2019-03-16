@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :buildings, through: :user_buildings
   has_many :shareable
   has_many :goods, through: :shareable
+  has_many :services, through: :shareable
 end

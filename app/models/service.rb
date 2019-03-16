@@ -1,5 +1,5 @@
 class Service < ApplicationRecord
-  
+  belongs_to :shareable
   def change
     create_table :services do |t|
       t.string :description
