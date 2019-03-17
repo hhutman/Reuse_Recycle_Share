@@ -4,6 +4,7 @@ class BuildingsController < ApplicationController
   def show
     @current_user = current_user 
     @building = current_user.buildings.first
+    @shareables = @building.shareables
   end
   private
   def validate_profile
