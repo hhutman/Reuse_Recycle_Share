@@ -3,3 +3,4 @@ class Profile < ApplicationRecord
   has_one_attached :license
   has_one_attached :bill
 end
+
