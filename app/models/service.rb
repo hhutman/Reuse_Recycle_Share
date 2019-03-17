@@ -1,5 +1,6 @@
 class Service < ApplicationRecord
-  belongs_to :shareable
+  has_many :transactions
+  belongs_to :user
   def change
     create_table :services do |t|
       t.string :description

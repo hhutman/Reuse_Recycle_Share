@@ -1,6 +1,6 @@
 class Good < ApplicationRecord
-  belongs_to :shareable
-
+  belongs_to :user
+  has_many :transactions
   def change
     create_table :good do |t|
       t.string :description

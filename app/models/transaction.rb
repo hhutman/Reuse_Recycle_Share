@@ -1,5 +1,5 @@
 class Transaction < ApplicationRecord
   belongs_to :user
-  belongs_to :building
-  belongs_to :shareable
+  belongs_to :good
+  belongs_to :service
 end

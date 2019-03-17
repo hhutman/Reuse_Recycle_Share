@@ -6,9 +6,12 @@
 //
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
-import ReactOnRails from 'react-on-rails';
-import Search from '..bundles/Building/components/Search';
+import ReactOnRails from "react-on-rails";
+import "babel-polyfill";
+import Building from "../bundles/Building/Building.jsx";
+import Search from "../bundles/Building/components/Search.jsx";
 
 ReactOnRails.register({
   Search,
+  Building
 });

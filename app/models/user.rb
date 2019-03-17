@@ -6,7 +6,6 @@ class User < ApplicationRecord
   has_one :profile
   has_many :user_buildings
   has_many :buildings, through: :user_buildings
-  has_many :shareable
-  has_many :goods, through: :shareable
-  has_many :services, through: :shareable
+  has_many :goods
+  has_many :services
 end

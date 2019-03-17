@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_16_163534) do
+ActiveRecord::Schema.define(version: 2019_04_09_195333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(version: 2019_03_16_163534) do
     t.string "description"
     t.string "availability"
     t.string "more_information"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "shareable_id"
-    t.index ["shareable_id"], name: "index_goods_on_shareable_id"
+    t.index ["user_id"], name: "index_goods_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -65,24 +65,12 @@ ActiveRecord::Schema.define(version: 2019_03_16_163534) do
 
   create_table "services", force: :cascade do |t|
     t.string "description"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "availablity"
     t.string "more_information"
-    t.bigint "shareable_id"
-    t.index ["shareable_id"], name: "index_services_on_shareable_id"
-  end
-
-  create_table "shareables", force: :cascade do |t|
-    t.string "product_name"
-    t.boolean "good"
-    t.boolean "service"
-    t.bigint "building_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["building_id"], name: "index_shareables_on_building_id"
-    t.index ["user_id"], name: "index_shareables_on_user_id"
+    t.index ["user_id"], name: "index_services_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -98,11 +86,13 @@ ActiveRecord::Schema.define(version: 2019_03_16_163534) do
     t.string "recipient"
     t.bigint "user_id"
     t.bigint "building_id"
-    t.bigint "shareable_id"
+    t.bigint "good_id"
+    t.bigint "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["building_id"], name: "index_transactions_on_building_id"
-    t.index ["shareable_id"], name: "index_transactions_on_shareable_id"
+    t.index ["good_id"], name: "index_transactions_on_good_id"
+    t.index ["service_id"], name: "index_transactions_on_service_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
@@ -129,13 +119,12 @@ ActiveRecord::Schema.define(version: 2019_03_16_163534) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "goods", "shareables"
+  add_foreign_key "goods", "users"
   add_foreign_key "profiles", "users"
-  add_foreign_key "services", "shareables"
-  add_foreign_key "shareables", "buildings"
-  add_foreign_key "shareables", "users"
+  add_foreign_key "services", "users"
   add_foreign_key "transactions", "buildings"
-  add_foreign_key "transactions", "shareables"
+  add_foreign_key "transactions", "goods"
+  add_foreign_key "transactions", "services"
   add_foreign_key "transactions", "users"
   add_foreign_key "user_buildings", "buildings"
   add_foreign_key "user_buildings", "users"

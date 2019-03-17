@@ -7,8 +7,8 @@ class CreateTransactions < ActiveRecord::Migration[5.2]
       t.string :recipient
       t.references :user, foreign_key: true
       t.references :building, foreign_key: true
-      t.references :shareable, foreign_key: true
-
+      t.references :good, foreign_key: true, optional: true
+      t.references :service, foreign_key: true, optional: true
       t.timestamps
     end
   end

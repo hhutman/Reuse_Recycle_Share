@@ -5,6 +5,9 @@ class GoodsController < ApplicationController
   # GET /goods.json
   def index
     @goods = Good.all
+    @goods = @goods.select do |good|
+      good.user.buildings.first.id === current_user.buildings.first.id
+    end 
   end
 
   # GET /goods/1
@@ -25,7 +28,7 @@ class GoodsController < ApplicationController
   # POST /goods.json
   def create
     @good = Good.new(good_params)
-
+    @good.user = current_user
     respond_to do |format|
       if @good.save
         format.html { redirect_to @good, notice: 'Good was successfully created.' }
