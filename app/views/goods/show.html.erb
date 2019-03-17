@@ -1,19 +1,22 @@
 <p id="notice"><%= notice %></p>
-
+<div>
 <p>
   <strong>Description:</strong>
   <%= @good.description %>
 </p>
-
+</div>
+<div>
 <p>
   <strong>Availability:</strong>
   <%= @good.availability %>
 </p>
-
+</div>
+<div>
 <p>
   <strong>More information:</strong>
   <%= @good.more_information %>
 </p>
+</div>
 
 <%= link_to 'Edit', edit_good_path(@good) %> |
 <%= link_to 'Back', goods_path %>

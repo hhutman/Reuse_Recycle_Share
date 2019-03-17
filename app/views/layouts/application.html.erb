@@ -16,7 +16,7 @@
   <body>
 
     <div class="container">
-      <nav id="navigation">
+      <nav class="navbar navbar-expand-lg  navbar-light bg-light">
         <% if current_user && current_user.buildings.any? %>
           <%= link_to "Buildings", building_path(current_user.buildings.first) %>
           <%= link_to "Goods", goods_path %>
