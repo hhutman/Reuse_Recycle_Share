@@ -15,7 +15,7 @@
   <body>
     <div class="container">
       <nav id="navigation">
-        <% if current_user %>
+        <% if current_user && current_user.buildings.any? %>
           <%= link_to "Buildings", building_path(current_user.buildings.first) %>
           <%= link_to "Goods", goods_path %>
           <%= link_to "Services", services_path %>

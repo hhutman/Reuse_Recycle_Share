@@ -1,10 +1,10 @@
 class HomeController < ApplicationController 
-  def index 
+
+  def index
     if current_user 
       redirect_to building_path(current_user.buildings.first)
-    end 
-    else
-      redirect_to '/users/sign_in'
+    else 
+      redirect_to 'users/sign_in'
     end  
   end
 end 
