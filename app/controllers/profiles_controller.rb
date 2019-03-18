@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
   end 
   def show 
     @profile = current_user.profile
-  end 
+  end  
   private 
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :address, :license, :bill) 

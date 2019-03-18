@@ -1,14 +1,11 @@
-
-<h1> Building </h1>
-<h3>Goods!</h3>
+<h1>HISTORY</h1>
+<h3>Goods</h3>
 <ul>
   <% @goods.each do |good| %>
     <li>
       <%= good.description %>
-      <% if current_user.id == good.user.id %>
       <%= link_to 'Edit', edit_good_path(good) %>
       <%= link_to 'Destroy', good, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
     </li>
   <% end %>
 </ul>
@@ -17,11 +14,8 @@
   <% @services.each do |service| %>
     <li>
       <%= service.description %>
-      <% if current_user.id == service.user.id %>
         <%= link_to 'Edit', edit_service_path(service) %>
         <%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
     </li>
   <% end %>
 </ul>
-<%= react_component 'Building' %>
