@@ -3,15 +3,16 @@ class ProfilesController < ApplicationController
     @profile = Profile.new
     @buildings = Building.all 
   end
+
   def create 
-    @profile = Profile.new(profile_params)
-    @profile.user = current_user
-    @profile.save
-    @user_building = UserBuilding.new(building_id: user_building_params)
-    @user_building.user = current_user
-    @user_building.save
-    building = @user_building.building
-    redirect_to building_path(building)
+    profile = Profile.new(profile_params)
+    profile.user = current_user
+    profile.save
+
+    building = Building.find_by(id: user_building_params[:building_id])
+    current_user.update(building: building)
+
+    redirect_to building
   end 
   def show 
     @profile = current_user.profile
@@ -20,7 +21,8 @@ class ProfilesController < ApplicationController
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :address, :license, :bill) 
   end  
-  def user_building_params 
-    params[:profile][:building_id]
+
+  def user_building_params
+    params.require(:profile).permit(:building_id)
   end 
 end 
