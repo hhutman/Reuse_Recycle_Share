@@ -9,7 +9,7 @@ class ServicesController < ApplicationController
     end
     @services = Service.all
     @services = @services.select do |service|
-      service.user.buildings.first.id === current_user.buildings.first.id
+      service.user.building.id === current_user.building.id
     end 
     respond_to do |format|
       format.html 
