@@ -4,10 +4,17 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
+    if params[:search]
+      @services = Service.where("description = ? OR more_information = ?", params[:search], params[:seach])
+    end
     @services = Service.all
     @services = @services.select do |service|
       service.user.buildings.first.id === current_user.buildings.first.id
     end 
+    respond_to do |format|
+      format.html 
+      format.json { render json: Service.all }
+    end
   end
 
   # GET /services/1

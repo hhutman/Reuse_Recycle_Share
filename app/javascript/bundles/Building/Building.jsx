@@ -22,7 +22,10 @@ class Building extends Component {
   render() {
     return(
       <form> 
-        <input />
+        <input
+        placeholder= "Search"
+        onChange={this.handleInputChange}
+        />
       </form>
     )
 
