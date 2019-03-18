@@ -4,29 +4,58 @@ import axios from "axios";
 class Building extends Component {
     
   state = {
-    query: '',
-    results: []
+    term: '',
+    goods: [],
+    services: []
   }
-  
-    async componentDidMount() {
-    const { data } = await axios.get("/buildings/25.json");
-    console.log(data);
+  async componentDidMount() {
+    this.fetchResults(this.state.term)
   }
 
-  handleInputChange = () => {
-    this.setState({
-      query: this.seach.data
-    })
+  fetchResults = async (term) => {
+    const { data } = await axios.get(`/buildings/${this.props.id}.json?term=${term}`);
+    this.setState({ goods: data.goods, services: data.services, term })
+  }
+
+  handleInputChange = event => {
+    const term = event.target.value
+    this.fetchResults(term)
   }
 
   render() {
     return(
-      <form> 
+      <div>
         <input
-        placeholder= "Search"
-        onChange={this.handleInputChange}
+          placeholder= "Search"
+          onChange={this.handleInputChange}
         />
-      </form>
+        <div id="goods-and-services">
+          <div className="goods">
+            <h3>Goods</h3>
+            <ul>
+              {
+                this.state.goods.map(good => (
+                  <li key={good.id}>
+                    {good.description}
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          <div>
+            <h3>Services</h3>
+            <ul>
+              {
+                this.state.services.map(service => (
+                  <li key={service.id}>
+                    {service.description}
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
     )
 
   }

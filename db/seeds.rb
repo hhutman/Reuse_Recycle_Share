@@ -5,21 +5,28 @@ User.destroy_all
 
 
 p "Deleted old records, creating new records"
-25.times do |i|
+10.times do
   building = Building.create!(
     building_name: Faker::Name.first_name,
     address: Faker::Address.street_address
   )
-  user = User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: i == 0 ? 'ed@ed.com' : Faker::Internet.email,
-    password: 'asdfasdf',
-    profile: Profile.new
-  )
-  user.buildings << building
+  10.times do
+    user = User.create!(
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      email: Faker::Internet.email,
+      password: 'asdfasdf',
+      profile: Profile.new,
+      building: building
+    )
+    5.times do
+      Good.create!(description: Faker::Food.dish, user: user)
+      Service.create!(description: Faker::Job.field, user: user)
+    end
+  end
 end
 
 p "#{User.count} users created"
 p "#{Building.count} buildings created"
 p "#{Good.count} goods created"
+p "#{Service.count} services created"

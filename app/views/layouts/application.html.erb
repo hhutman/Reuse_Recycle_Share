@@ -18,15 +18,14 @@
 
     <div class="container">
       <nav class="navbar navbar-expand-lg  navbar-light bg-light">
-        <% if current_user && current_user.buildings.any? %>
-          <%= link_to "Buildings", building_path(current_user.buildings.first) %>
+        <% if current_user && current_user.building %>
+          <%= link_to "My Building", current_user.building %>
           <%= link_to "Goods", goods_path %>
           <%= link_to "Services", services_path %>
           <%= link_to "My Profile", profile_path(current_user.profile) %>
           <%= link_to "Chat!", chats_show_path %>
         <% end %>
       </nav>
-    <%= react_component("Search") %>
     <%= yield %>
     </div>
 
