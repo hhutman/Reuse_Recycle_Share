@@ -6,7 +6,7 @@ class GoodsController < ApplicationController
   def index
     @goods = Good.all
     @goods = @goods.select do |good|
-      good.user.buildings.first.id === current_user.buildings.first.id
+      good.user.building.id === current_user.building.id
     end 
   end
 
