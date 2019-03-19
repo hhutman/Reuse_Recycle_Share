@@ -1,5 +1,7 @@
 @import 'bourbon';
 @import 'base/base';
+@import 'goods';
+@import 'services';
 
 #goods-and-services{
   display: grid;
@@ -11,6 +13,7 @@
   margin: 0 auto;
   max-width: 36em;
   padding: 2em 0 0;
+  display: inline;
 }
 
 .header {
