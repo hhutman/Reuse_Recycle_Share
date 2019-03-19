@@ -20,7 +20,11 @@
     <%= f.label 'Utility Bill'%>
     <%= f.file_field :bill %>
   </div>
-    <div>
+  <div>
+    <%= f.label 'Profile Pic'%>
+    <%= f.file_field :pic %>
+  </div>
+  <div>
     <%= f.label 'Building'%>
     <%= f.collection_select(:building_id, @buildings, :id, :address, :include_blank => "Select your building") %>
   </div>

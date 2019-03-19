@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_09_195334) do
+ActiveRecord::Schema.define(version: 2019_04_09_195335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2019_04_09_195334) do
 
   create_table "goods", force: :cascade do |t|
     t.string "description"
-    t.string "availability"
     t.string "more_information"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -68,7 +67,6 @@ ActiveRecord::Schema.define(version: 2019_04_09_195334) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "availablity"
     t.string "more_information"
     t.index ["user_id"], name: "index_services_on_user_id"
   end
@@ -77,23 +75,6 @@ ActiveRecord::Schema.define(version: 2019_04_09_195334) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "transactions", force: :cascade do |t|
-    t.string "transaction_name"
-    t.boolean "approved"
-    t.boolean "completed"
-    t.string "recipient"
-    t.bigint "user_id"
-    t.bigint "building_id"
-    t.bigint "good_id"
-    t.bigint "service_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["building_id"], name: "index_transactions_on_building_id"
-    t.index ["good_id"], name: "index_transactions_on_good_id"
-    t.index ["service_id"], name: "index_transactions_on_service_id"
-    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -115,9 +96,5 @@ ActiveRecord::Schema.define(version: 2019_04_09_195334) do
   add_foreign_key "goods", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "services", "users"
-  add_foreign_key "transactions", "buildings"
-  add_foreign_key "transactions", "goods"
-  add_foreign_key "transactions", "services"
-  add_foreign_key "transactions", "users"
   add_foreign_key "users", "buildings"
 end

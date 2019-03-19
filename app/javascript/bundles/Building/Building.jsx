@@ -26,7 +26,7 @@ class Building extends Component {
     return(
       <div>
         <input
-          placeholder= "Search"
+          placeholder="Search"
           onChange={this.handleInputChange}
         />
         <div id="goods-and-services">
@@ -36,7 +36,8 @@ class Building extends Component {
               {
                 this.state.goods.map(good => (
                   <li key={good.id}>
-                    {good.description}
+                    <img src={good.owner_pic} width="50"/>
+                    <a href={good.location}>{good.description}</a>
                   </li>
                 ))
               }
