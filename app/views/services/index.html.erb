@@ -1,11 +1,10 @@
 <p id="notice"><%= notice %></p>
 <h1>Services: Offered & Needed</h1>
 <%= link_to 'New Service', new_service_path %>
-<table>
+<table class="da-services">
   <thead>
     <tr>
       <th>Description</th>
-      <th colspan=".10"></th>
     </tr>
   </thead>
 
@@ -14,9 +13,6 @@
 
       <tr>
         <td><%= service.description %></td>
-
-
-        
         <td><%= link_to 'Edit', edit_service_path(service), class: "btn btn-primary" %></td>
         <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %></td>
       </tr>
