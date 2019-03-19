@@ -23,41 +23,35 @@ class Building extends Component {
   }
 
   render() {
-    return(
+    return (
       <div>
-        <input
-          placeholder="Search"
-          onChange={this.handleInputChange}
-        />
+        <input placeholder="Search" onChange={this.handleInputChange} />
         <div id="goods-and-services">
           <div className="goods">
             <h3>Goods</h3>
             <ul>
-              {
-                this.state.goods.map(good => (
-                  <li key={good.id}>
-                    <img src={good.owner_pic} width="50"/>
-                    <a href={good.location}>{good.description}</a>
-                  </li>
-                ))
-              }
+              {this.state.goods.map(good => (
+                <li key={good.id}>
+                  <img src={good.owner_pic} width="50" />
+                  <a href={good.location}>{good.description}</a>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
             <h3>Services</h3>
             <ul>
-              {
-                this.state.services.map(service => (
-                  <li key={service.id}>
-                    {service.description}
-                  </li>
-                ))
-              }
+              {this.state.services.map(service => (
+                <li key={service.id}>
+                  <img src={service.owner_pic} width="50" />
+                  <a href={service.location}>{service.description}</a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
       </div>
-    )
+    );
 
   }
 }
