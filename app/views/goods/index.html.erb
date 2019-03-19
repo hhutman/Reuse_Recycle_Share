@@ -17,7 +17,6 @@
     <% @goods.each do |good| %>
       <tr>
         <td><%= good.description %></td>
-        <td><%= good.availability %></td>
         <td><%= good.more_information %></td>
         
         <td><%= link_to 'Edit', edit_good_path(good), class: "btn btn-primary" %></td>

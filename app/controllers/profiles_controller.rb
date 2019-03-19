@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
   end  
   private 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :address, :license, :bill) 
+    params.require(:profile).permit(:first_name, :last_name, :address, :license, :bill, :pic) 
   end  
 
   def user_building_params
