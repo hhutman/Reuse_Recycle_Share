@@ -20,8 +20,8 @@
         <td><%= good.availability %></td>
         <td><%= good.more_information %></td>
         
-        <td><%= link_to 'Edit', edit_good_path(good) %></td>
-        <td><%= link_to 'Destroy', good, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_good_path(good), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', good, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
