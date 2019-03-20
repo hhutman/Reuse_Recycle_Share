@@ -5,13 +5,14 @@ User.destroy_all
 Building.destroy_all
 
 
-puts "Deleted old records, creating new records"
-10.times do
+
+p "Deleted old records, creating new records"
+5.times do
   building = Building.create!(
     building_name: Faker::Name.first_name,
     address: Faker::Address.street_address
   )
-  10.times do
+  5.times do |n|
     user = User.create!(
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
@@ -19,13 +20,12 @@ puts "Deleted old records, creating new records"
       password: 'asdfasdf',
       building: building
     )
-
-    profile = Profile.create!(address: "1001 Here St.", user: user )
-    url = "https://randomuser.me/api/portraits/med/#{['men', 'women'].sample}/#{profile.id}.jpg"
+    profile = Profile.create(address: "1001 Here St.", user: user )
+    url = "https://randomuser.me/api/portraits/med/#{['men', 'women'].sample}/#{n+1}.jpg"
     image = open(url)
-    profile.pic.attach(io: image, filename: "pic.jpg")
+    profile.pic.attach(io: image, filename: "pic#{n}.jpg")
 
-    5.times do
+    3.times do
       Good.create!(description: Faker::Food.dish, user: user)
       Service.create!(description: Faker::Job.field, user: user)
     end
