@@ -22,7 +22,7 @@
   <%= @good.more_information %>
 </p>
 
-<%if current_user.id == @good.owner_id%>
+<%if current_user.id == @good.user_id%>
   <%= link_to 'Edit', edit_good_path(@good) %> |
 <%end%>
 <%= link_to 'Back', goods_path %>
