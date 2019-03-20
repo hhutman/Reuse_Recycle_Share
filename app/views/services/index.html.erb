@@ -1,14 +1,12 @@
 <p id="notice"><%= notice %></p>
-
-<h1>100 SE 2nd St, Miami, FL 33131</h1>
-
 <h1>Services: Offered & Needed</h1>
-
-<table>
+  <div class="New-service">
+<%= link_to 'New Service', new_service_path %>
+  </div>
+<table class="da-services">
   <thead>
     <tr>
       <th>Description</th>
-      <th colspan=".10"></th>
     </tr>
   </thead>
 
@@ -17,9 +15,6 @@
 
       <tr>
         <td><%= service.description %></td>
-
-
-        
         <td><%= link_to 'Edit', edit_service_path(service), class: "btn btn-primary" %></td>
         <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %></td>
       </tr>
@@ -30,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Service', new_service_path %>
+

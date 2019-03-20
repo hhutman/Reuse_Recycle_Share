@@ -1,19 +1,36 @@
 <p id="notice"><%= notice %></p>
-<div>
-<p>
-  <strong>Description:</strong>
+
+
+<div class="container">
+
+<div class="col-xs-12 col-sm-offset-4 col-sm-4" style="float:left;background-color:#cfd1d1;padding:0px;border:solid 0px;">
+
+<div class="col-sm-4" style="float:left;border:solid 0px;height:150px;">
+<%= image_tag 'cupofsugar.jpeg'%>
+</div>
+
+<div class="col-sm-7" style="float:left;border:solid 0px;height:150px;">
+<p style="font-size:20px;">
+  <%= @good.title %>
+</p>
+<p style="font-size:12px;background-color:#cfd1d1;">
   <%= @good.description %>
 </p>
-</div>
-<div>
 
-</div>
-<div>
 <p>
   <strong>More information:</strong>
   <%= @good.more_information %>
 </p>
+
+<%if current_user.id == @good.owner_id%>
+  <%= link_to 'Edit', edit_good_path(@good) %> |
+<%end%>
+<%= link_to 'Back', goods_path %>
 </div>
 
-<%= link_to 'Edit', edit_good_path(@good) %> |
-<%= link_to 'Back', goods_path %>
+</div>
+
+
+</div> <!-- container -->
+
+

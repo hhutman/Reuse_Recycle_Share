@@ -35,8 +35,11 @@ This is a boilerplate Rails project that uses:
 
 ## Deployment
 
+### The Node.js buildback must be added first or precompiling of assets may fail on Heroku: [See this issue](https://github.com/rails/webpacker/issues/1164#issuecomment-443474860)
+
 * `heroku create your-app-name`
-* `heroku buildpacks:set heroku/ruby`
-* `heroku buildpacks:add --index 1 heroku/nodejs`
+* `heroku buildpacks:set --index 1 heroku/nodejs`
+* `heroku buildpacks:add heroku/ruby`
 * `git push heroku master`
 * `heroku run rails db:migrate`
+* _optional_: `heroku run rails db:seed`

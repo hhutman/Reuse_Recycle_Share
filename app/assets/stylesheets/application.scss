@@ -1,21 +1,11 @@
 @import 'bourbon';
 @import 'base/base';
+
+
+
 @import 'users';
-
-
-
-// delete .field below
- // .field {
- //   margin-top: 25px;
- //   background-color:grey;
- // }
-
- //.actions {
-//   margin-top: 25px;
-  // border: 5px solid grey ;
-//   background-color: grey;
-// }
-
+@import 'goods';
+@import 'services';
 
 
 #goods-and-services{
@@ -28,6 +18,7 @@
   margin: 0 auto;
   max-width: 36em;
   padding: 2em 0 0;
+  display: inline;
 }
 
 .header {
