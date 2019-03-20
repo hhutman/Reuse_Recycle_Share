@@ -1,6 +1,7 @@
 Rails.application.routes.default_url_options[:host] = 'localhost:3000'
 
 Rails.application.configure do
+  config.active_job.queue_adapter = :inline
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = true
   # Settings specified here will take precedence over those in config/application.rb.

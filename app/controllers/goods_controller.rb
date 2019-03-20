@@ -5,10 +5,7 @@ class GoodsController < ApplicationController
   # GET /goods
   # GET /goods.json
   def index
-    @goods = Good.all
-    @goods = @goods.select do |good|
-      good.user.building.id === current_user.building.id
-    end 
+    @goods = Good.where(user: current_user.building.users)
   end
 
   # GET /goods/1
