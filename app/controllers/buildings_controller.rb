@@ -4,17 +4,10 @@ class BuildingsController < ApplicationController
   def show
     @building = Building.find(params[:id])
     users     = @building.users
-
-    if params[:term].present?
-      goods     = Good.where(user: users)
-      services  = Service.where(user: users)
-      goods = goods.where("description ilike ?", "%#{params[:term]}%")
-      services = services.where("description ilike ?", "%#{params[:term]}%")
-    else
-      goods = []
-      services = []
-    end
-
+    goods     = Good.where(user: users)
+    services  = Service.where(user: users)
+    goods = goods.where("description ilike ?", "%#{params[:term]}%")
+    services = services.where("description ilike ?", "%#{params[:term]}%")
     respond_to do |format|
       format.html
       format.json do

@@ -6,17 +6,10 @@ class Building extends Component {
   state = {
     term: '',
     goods: [],
-    services: [],
-    feed: [],
+    services: []
   }
   async componentDidMount() {
     this.fetchResults(this.state.term)
-    const [ { data: goods }, { data: services } ] = await Promise.all([
-      axios.get('/goods.json'),
-      axios.get('/services.json')
-    ])
-    const feed = [ ...goods, ...services]
-    this.setState({ feed })
   }
 
   fetchResults = async (term) => {
@@ -57,18 +50,6 @@ class Building extends Component {
                 </li>
               ))}
             </ul>
-          </div>
-          <div>
-            <h3>Feed</h3>
-                <ul>
-                  {feed.map(item => (
-                    <li key={item.id}>
-                      <img src={item.owner_pic} width="50" />
-                      <a href={item.location}>{item.description}</a>
-                      <p>{item.more_information}</p>
-                    </li>
-                  ))}
-                </ul>
           </div>
         </div>
       </div>
