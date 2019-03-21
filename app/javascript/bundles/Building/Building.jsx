@@ -34,7 +34,7 @@ class Building extends Component {
             <ul>
               {goods.map(good => (
                 <li key={good.id}>
-                  <img src={good.owner_pic} width="50" />
+                  <img src={good.owner_pic} width="75" />
                   <a href={good.location}>{good.description}</a>
                 </li>
               ))}
@@ -45,7 +45,7 @@ class Building extends Component {
             <ul>
               {services.map(service => (
                 <li key={service.id}>
-                  <img src={service.owner_pic} width="50" />
+                  <img src={service.owner_pic} width="75" />
                   <a href={service.location}>{service.description}</a>
                 </li>
               ))}
@@ -57,7 +57,5 @@ class Building extends Component {
 
   }
 }
-
-
 
 export default Building;
