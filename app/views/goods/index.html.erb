@@ -25,7 +25,9 @@
             <%= link_to 'Edit', edit_good_path(good), class: "btn btn-primary" %>
           <% end %>
         </td>
+        <% if current_user.id == good.user_id %>
         <td><%= link_to 'Destroy', good, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
