@@ -15,6 +15,7 @@
 
       <tr>
         <td><%= service.description %></td>
+        <td><%= image_tag service.user.profile.pic %></td>
         <td><%= link_to 'Edit', edit_service_path(service), class: "btn btn-primary" %></td>
         <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %></td>
       </tr>

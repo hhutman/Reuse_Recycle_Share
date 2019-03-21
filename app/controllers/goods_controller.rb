@@ -6,6 +6,12 @@ class GoodsController < ApplicationController
   # GET /goods.json
   def index
     @goods = Good.where(user: current_user.building.users)
+    respond_to do |format|
+      format.html
+      format.json do 
+        render json: @goods
+      end
+    end 
   end
 
   # GET /goods/1

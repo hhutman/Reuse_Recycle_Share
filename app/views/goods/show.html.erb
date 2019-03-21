@@ -27,7 +27,8 @@
 <%end%>
 <%= link_to 'Back', goods_path %>
 </div>
-
+<div>Owner: <%=  @good.user.profile.first_name %></div>
+<div><%= link_to "Send this user a message", "/chats/show" %></div>
 </div>
 
 

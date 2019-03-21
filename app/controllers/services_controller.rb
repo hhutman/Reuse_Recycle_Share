@@ -17,6 +17,13 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
+    @services = Service.where(user: current_user.building.users)
+    respond_to do |format| 
+      format.html 
+      format.json do 
+        render json: @services
+      end 
+    end 
   end
 
   # GET /services/new
