@@ -1,6 +1,8 @@
 class GoodsController < ApplicationController
   before_action :set_good, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :goods_owner, only: [:edit, :update, :destroy]
+
 
   # GET /goods
   # GET /goods.json
@@ -26,6 +28,8 @@ class GoodsController < ApplicationController
 
   # GET /goods/1/edit
   def edit
+   
+
   end
 
   # POST /goods

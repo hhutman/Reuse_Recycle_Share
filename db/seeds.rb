@@ -9,8 +9,8 @@ Building.destroy_all
 p "Deleted old records, creating new records"
 5.times do
   building = Building.create!(
-    building_name: Faker::Name.first_name,
-    address: Faker::Address.street_address
+    building_name: ["One Paraiso", "Icon Brickell", "Maria", "Asia", "Grove at Grand Bay"].sample,
+    address: ["3131 NE 7th Avenue", "465 Brickell Ave", "1643 Brickell Ave", "900 Brickell Key Blvd", "2669 S Bayshore Dr"].sample,
   )
   5.times do |n|
     user = User.create!(
