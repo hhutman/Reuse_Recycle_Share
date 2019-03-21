@@ -11,7 +11,7 @@
 
 <div class="col-sm-7" style="float:left;border:solid 0px;height:150px;">
 <p style="font-size:20px;">
-  
+
 </p>
 <p style="font-size:12px;background-color:#cfd1d1;">
   <%= @good.description %>
@@ -30,6 +30,8 @@
 <div>Owner: <%=  @good.user.profile.first_name %></div>
 <div><%= link_to "Send this user a message", "/chats/show" %></div>
 </div>
-
+<div class="col-md-3">
+  <%= render "chats/show" %>
+</div>
 
 </div> <!-- container -->
