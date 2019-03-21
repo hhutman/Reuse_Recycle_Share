@@ -1,3 +1,4 @@
+<div style="margin: 0% 20% 0 20%">
 <%= form_with(model: good, local: true) do |form| %>
   <% if good.errors.any? %>
     <div id="error_explanation">
@@ -25,3 +26,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div> <!--end the container for css-->
