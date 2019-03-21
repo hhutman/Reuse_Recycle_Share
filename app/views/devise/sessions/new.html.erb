@@ -1,12 +1,17 @@
-<div class="container">
-  <div class="row">
+<div class="login">
 
-    <div class="col-md-4">
-      <center><%=image_tag "Recycle_resize.svg .png", :style=>"margin-top: 40%; width:200px;" %>
-    </div>
+  <div class="container_login">
 
-    <div class="col-md-4">
-      <h2>Reuse, Recycle, Share Community List</h2>
+    <div class="col-md-6x">
+      <h2 style="color:green">
+        R<span style="color:white">e</span>u<span style="color:yellow">s</span>e, Re<span style="color:yellow">c</span>ycle, <span style="color:yellow">S</span>hare <span style="color:yellow">Co</span>mmunit<span style="color:yellow">y</span> <span style="color:white">List</span></h2>
+
+
+
+
+      </div>
+
+        <div class="col-md-6x">
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
@@ -34,5 +39,6 @@
       <%= render "devise/shared/links" %>
     </div>
 
+    </div>
     </div>
     </div>
