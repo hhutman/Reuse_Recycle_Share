@@ -1,7 +1,7 @@
 <div id="sign-up">
   <div class="container">
-    <div class="row mx-3">
-      <div class="offset-md-3 col-md-6">
+    <div class="row mx-3 " >
+      <div class="offset-md-3 col-md-6 signup-container">
         <h1>Sign up</h1>
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -26,7 +26,7 @@
           </div>
 
           <div class="actions">
-            <%= f.submit "Sign up" %>
+            <%= f.submit "Sign up", class: "login-button" %>
           </div>
         <% end %>
 

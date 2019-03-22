@@ -8,8 +8,6 @@ html {
 
 
 .login {
-
-
    background-image: url(<%= asset_path("brickell_background.jpg") %>);
    background-position: center;
    background-repeat: no-repeat;
@@ -27,11 +25,26 @@ html {
   margin-bottom: 30px;
 }
 
-.hp_login a,
-.hp_login a:hover {
+  .hp_login a,
+  .hp_login a:hover,
+  #sign-up a,
+  #sign-up a:hover
+{
   color: green;
   font-weight: bold;
   font-size: 1.3rem
+}
+
+h1 {
+  font-size: 4rem;
+  color:green;
+  margin-top: 2rem;
+}
+
+h1 {
+  font-size: 4rem;
+  color:green;
+  margin-top: 2rem;
 }
 
 #main-title  {
@@ -46,7 +59,8 @@ html {
   width: 100%;
 }
 
-.login label {
+.login label,
+#sign-up label {
   color: green;
   font-size: 1.3rem;
 }
@@ -74,6 +88,19 @@ html {
 
 // ------------------------------------SIGN include
 #sign-up {
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjN4rRXtqaHhC2JqwOTt1R5hWmG9HFqsIYeK9-zqepGk7DHbcrqw);
+  background-image: url(https://www.sendwork.com/wp-content/uploads/2017/05/Brickell-Avenue-Skyline.jpg);
   background-size: cover;
+  min-height: 100vh;
+  h1 {
+    font-size: 4rem;
+    color:green;
+    margin-top: 2rem;
+  }
+  em {
+    color:green;
+  }
+  .signup-container {
+    padding: 1rem;
+    background-color: rgba(200,200,250,0.5);
+  }
 }
