@@ -1,18 +1,11 @@
 <div class="login">
 
-  <div class="container_login">
-
-    <div class="col-md-6x">
-      <h2 style="color:green">
-        R<span style="color:white">e</span>u<span style="color:yellow">s</span>e, Re<span style="color:yellow">c</span>ycle, <span style="color:yellow">S</span>hare <span style="color:yellow">Co</span>mmunit<span style="color:yellow">y</span> <span style="color:white">List</span></h2>
+    <header id="main-title" style="color:green">
+      R<span style="color:white">e</span>u<span style="color:yellow">s</span>e, Re<span style="color:yellow">c</span>ycle, <span style="color:yellow">S</span>hare <span style="color:yellow">Co</span>mmunit<span style="color:yellow">y</span> <span style="color:white">List</span>
+    </header>
 
 
-
-
-      </div>
-
-        <div class="col-md-6x">
-
+    <div class = "hp_login">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
           <%= f.label :email %>
@@ -32,13 +25,13 @@
         <% end %>
 
         <div class="actions">
-          <%= f.submit "Log in", :style=>"background-color:#010101;" %>
+          <%= f.submit "Log in", class: "login-button" %>
         </div>
       <% end %>
-
-      <%= render "devise/shared/links" %>
+      <div class="mt-2">
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
 
-    </div>
-    </div>
-    </div>
+
+</div>
