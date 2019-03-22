@@ -4,6 +4,9 @@
     <title>FinalProjectTemplate</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script async src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script async src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
       rel="stylesheet"
@@ -22,9 +25,9 @@
 
   <body>
 
-    <div class="container">
-      <nav class="navbar navbar-light bg-light">
-        <% if current_user && current_user.building %>
+    <% if current_user && current_user.building %>
+      <div class="container">
+        <nav class="navbar navbar-light bg-light">
           <%= link_to "My Building", current_user.building, class:"navbar-brand" %>
           <%= link_to "Goods", goods_path, class:"navbar-brand" %>
           <%= link_to "Services", services_path, class:"navbar-brand" %>
@@ -38,15 +41,12 @@
                 style: "border-radius: 100%; object-fit: cover;"),
                 profile_path(current_user.profile)%>
           <% end %>
-        <% end %>
-      </nav>
-    </div>
-    <%= yield %>
-    </div>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+        </nav>
+      </div>
+    <% end %>
 
-    <li>
-    <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-    </li>
+    <%= yield %>
 
   </body>
 </html>
