@@ -22,11 +22,29 @@
   display: inline;
 }
 
-.header {
-  background: rgba(0, 0, 0, .05);
-  border-radius: 3px;
-  margin: 0 0 1em;
-  padding: .5em;
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  height: 50px;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: lightblue;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
 }
 
 .chat {
@@ -95,3 +113,14 @@
     max-height: calc(100% - 1em);
   }
 }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar-image{
+  border-radius: 5px 20px 5px;
+  position: static;
+}
+
