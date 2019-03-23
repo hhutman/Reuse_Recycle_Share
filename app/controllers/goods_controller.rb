@@ -80,6 +80,6 @@ class GoodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def good_params
-      params.require(:good).permit(:description, :availability, :more_information)
+      params.require(:good).permit(:description, :availability, :more_information, :pic)
     end
 end

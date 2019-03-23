@@ -9,9 +9,11 @@
 import ReactOnRails from "react-on-rails";
 import "babel-polyfill";
 import Building from "../bundles/Building/Building.jsx";
+import Goods from "../bundles/Goods";
 import Search from "../bundles/Building/components/Search.jsx";
 
 ReactOnRails.register({
   Search,
-  Building
+  Building,
+  Goods,
 });
