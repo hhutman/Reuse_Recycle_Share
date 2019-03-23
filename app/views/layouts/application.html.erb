@@ -27,7 +27,7 @@
 
     <% if current_user && current_user.building %>
       <div class="container">
-        <nav class="navbar navbar-light bg-light">
+        <nav class="topnav">
           <%= link_to "My Building", current_user.building, class:"navbar-brand" %>
           <%= link_to "Goods", goods_path, class:"navbar-brand" %>
           <%= link_to "Services", services_path, class:"navbar-brand" %>
@@ -35,13 +35,15 @@
           <% if current_user.profile %>
             <%#= current_user.email %>
             <%= link_to image_tag(current_user.profile.pic.attached? ? current_user.profile.pic : 'https://randomuser.me/api/portraits/med/lego/1.jpg',
-                class:"navbar-brand",
-                width: 100,
-                height: 100,
+                class:"navbar-brand navbar-image", 
+                width: 35,
+                height: 35,
                 style: "border-radius: 100%; object-fit: cover;"),
                 profile_path(current_user.profile)%>
           <% end %>
+          <div class="logout">
           <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+          </div>
         </nav>
       </div>
     <% end %>
