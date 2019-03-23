@@ -10,10 +10,14 @@ import ReactOnRails from "react-on-rails";
 import "babel-polyfill";
 import Building from "../bundles/Building/Building.jsx";
 import Goods from "../bundles/Goods";
+import Services from "../bundles/Services";
+import Items from '../bundles/Items';
 import Search from "../bundles/Building/components/Search.jsx";
 
 ReactOnRails.register({
   Search,
   Building,
   Goods,
+  Services,
+  Items,
 });
