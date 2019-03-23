@@ -15,10 +15,13 @@
     <% @services.each do |service| %>
       <tr>
         <td><%= service.description %></td>
+        <td><%= service.more_information %></td>
         <td><%= image_tag service.user.profile.pic %></td>
+        <td>
          <% if current_user.id == service.user_id %>
-        <td><%= link_to 'Edit', edit_service_path(service), class: "btn btn-primary" %></td>
+            <%= link_to 'Edit', edit_service_path(service), class: "btn btn-primary" %>
          <% end %>
+         </td>
          <% if current_user.id == service.user_id %>
         <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %></td>
          <% end %>
