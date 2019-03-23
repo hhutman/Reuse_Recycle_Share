@@ -48,6 +48,10 @@
       </div>
     <% end %>
 
+    <% if current_user && current_user.building%>
+      <%# will put footer here %>
+    <% end %>
+
     <%= yield %>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
