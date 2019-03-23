@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Portal } from "react-portal";
 import axios from "axios";
 
 class Building extends Component {
@@ -6,7 +7,8 @@ class Building extends Component {
   state = {
     term: '',
     goods: [],
-    services: []
+    services: [],
+    isOpen: false,
   }
   async componentDidMount() {
     this.fetchResults(this.state.term)
@@ -23,8 +25,26 @@ class Building extends Component {
     this.fetchResults(term)
   }
 
+  toggleModal = _ => this.setState({ isOpen: !this.state.isOpen })
+
   render() {
-    const { goods, services, feed } = this.state
+    const modal = (
+      <Portal className="foo">
+        <aside className="c-modal-cover">
+          <div className="c-modal">
+            <button onClick={this.toggleModal} className="c-modal__close">
+              <span className="u-hide-visually">Close</span>
+              <svg className="c-modal__close-icon" viewBox="0 0 40 40"><path d="M 10,10 L 30,30 M 30,10 L 10,30"></path></svg>
+            </button>
+            <div className="c-modal__body">
+              CONTENT WILL GO HERE
+            </div>
+          </div>
+        </aside>
+      </Portal>
+    )
+    console.log(Portal)
+    const { goods, services, feed, isOpen } = this.state
     return (
       <div>
         <input placeholder="Search" onChange={this.handleInputChange} />
@@ -52,6 +72,8 @@ class Building extends Component {
             </ul>
           </div>
         </div>
+        <button onClick={this.toggleModal}>Open Modal</button>
+        { isOpen && modal }
       </div>
     );
 
