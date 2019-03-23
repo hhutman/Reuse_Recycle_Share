@@ -41,7 +41,9 @@
                 style: "border-radius: 100%; object-fit: cover;"),
                 profile_path(current_user.profile)%>
           <% end %>
+          <div class="logout">
           <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+          </div>
         </nav>
       </div>
     <% end %>
