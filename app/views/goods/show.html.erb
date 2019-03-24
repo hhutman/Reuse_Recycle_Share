@@ -5,12 +5,12 @@
 
 <div class="col-sm-4" style="float:left;border:solid 0px;height:150px;">
   <% if @good.pic.attached? %>
-    <%= image_tag @good.pic %>    
+    <%= image_tag @good.pic %>
   <% end  %>
 </div>
 
 
-</p>
+<p>
   <%= @good.description %>
 </p>
 
@@ -28,7 +28,7 @@
 
 
 </div class="owner">
-Owner: <%=  @good.user.profile.first_name %></div>
+Owner: <%=  @good.user.email %></div>
 <div>
 
 
@@ -36,3 +36,35 @@ Owner: <%=  @good.user.profile.first_name %></div>
   <%= link_to "Send this user a message", "/chats/show" %></div>
 </div>
 
+
+<% if @good.user == current_user %>
+  <% @good.good_posts.each do |post| %>
+    <p>
+      <%= post.body %>
+      <%= post.user.email %>
+      <%= time_ago_in_words(post.created_at) %>
+    </p>
+  <% end %>
+
+  <hr>
+
+  <%= form_for([@good, GoodPost.new]) do |form| %>
+    <%= form.text_field :body %>
+    <%= form.submit %>
+  <% end %>
+<% else %>
+  <% @my_posts.each do |post| %>
+    <p>
+      <%= post.body %>
+      <%= post.user.email %>
+      <%= time_ago_in_words(post.created_at) %>
+    </p>
+  <% end %>
+
+  <hr>
+
+  <%= form_for([@good, GoodPost.new]) do |form| %>
+    <%= form.text_field :body %>
+    <%= form.submit %>
+  <% end %>
+<% end %>

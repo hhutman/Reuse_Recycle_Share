@@ -4,8 +4,9 @@ import Form from '../Form';
 
 
 const Modal = ({ toggleModal, isOpen, createItem, type }) => (
-  isOpen && (
+  isOpen ? (
     <Portal>
+      {console.log(isOpen)}
       <aside className="c-modal-cover fadeIn">
         <div className="c-modal slideIn">
           <div className="c-modal__body">
@@ -14,7 +15,7 @@ const Modal = ({ toggleModal, isOpen, createItem, type }) => (
         </div>
       </aside>
   </Portal>
-  )
+) : null
 )
 
 export default Modal;
