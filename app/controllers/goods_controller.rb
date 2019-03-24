@@ -1,7 +1,7 @@
 class GoodsController < ApplicationController
   before_action :set_good, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :goods_owner, only: [:edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
 
   # GET /goods
@@ -11,7 +11,9 @@ class GoodsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do 
-        render json: @goods
+        render json: {
+          goods: @goods.map{|g|g.attributes.merge(image: url_for(g.user.profile.pic), ownerId: g.user.id)}
+        }
       end
     end 
   end
@@ -37,39 +39,19 @@ class GoodsController < ApplicationController
   def create
     @good = Good.new(good_params)
     @good.user = current_user
-    respond_to do |format|
-      if @good.save
-        format.html { redirect_to @good, notice: 'Good was successfully created.' }
-        format.json { render :show, status: :created, location: @good }
-      else
-        format.html { render :new }
-        format.json { render json: @good.errors, status: :unprocessable_entity }
-      end
-    end
+    @good.save
   end
 
   # PATCH/PUT /goods/1
   # PATCH/PUT /goods/1.json
   def update
-    respond_to do |format|
-      if @good.update(good_params)
-        format.html { redirect_to @good, notice: 'Good was successfully updated.' }
-        format.json { render :show, status: :ok, location: @good }
-      else
-        format.html { render :edit }
-        format.json { render json: @good.errors, status: :unprocessable_entity }
-      end
-    end
+    @good.update(good_params)
   end
 
   # DELETE /goods/1
   # DELETE /goods/1.json
   def destroy
     @good.destroy
-    respond_to do |format|
-      format.html { redirect_to goods_url, notice: 'Good was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
@@ -80,6 +62,6 @@ class GoodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def good_params
-      params.require(:good).permit(:description, :availability, :more_information, :pic)
+      params.require(:good).permit(:description, :more_information, :pic)
     end
 end
