@@ -26,16 +26,9 @@
 <%= link_to 'Back', goods_path %>
 </div>
 
-
 </div class="owner">
 Owner: <%=  @good.user.email %></div>
 <div>
-
-
-<div class="message">
-  <%= link_to "Send this user a message", "/chats/show" %></div>
-</div>
-
 
 <% if @good.user == current_user %>
   <% @good.good_posts.each do |post| %>
