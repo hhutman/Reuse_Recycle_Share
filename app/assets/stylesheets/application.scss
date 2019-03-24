@@ -180,3 +180,47 @@ body {
   margin-top: 200px;
   padding-right: 1.5rem;
 }
+
+.footer {
+  background-color: #333;
+  height: 80px;
+  overflow: hidden;
+}
+.footer a {
+  float: center;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 1px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.footer a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+h3 {
+  text-align: center;
+  color: white;
+  margin-left: 27%;
+  margin-right: 33%;
+}
+
+#social-fb:hover {
+     color: #3B5998;
+ }
+ #social-tw:hover {
+     color: #4099FF;
+ }
+ 
+ #social-em:hover {
+     color: #f39c12;
+ }
+
+ .footer-contents {
+   margin: auto;
+   width: 30%;
+   margin-left: 33%;
+   margin-right: 33%;
+ }
