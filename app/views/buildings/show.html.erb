@@ -1,10 +1,18 @@
+
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-md-9">
       <%= react_component 'Building', props: { id: @building.id }  %>
+
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 chat_buildingpage">
+      <h3 id="goods-and-services-title">Community Messaging</h3>
       <%= render "chats/show" %>
     </div>
+
+
   </div>
 </div>
