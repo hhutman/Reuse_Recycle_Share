@@ -46,10 +46,10 @@ class Building extends Component {
     const { goods, services, isOpen, type } = this.state
     return (
       <div>
-       <div className = "search">
+       <div className="search">
         <input placeholder="Search" onChange={this.handleInputChange} />
         </div>
-        <div>
+        <div className="homebuttons">
           <button onClick={this.startCreate("good")}>Create Good!!!</button>
           <button onClick={this.startCreate("service")}>Create Service!!</button>
         </div>
