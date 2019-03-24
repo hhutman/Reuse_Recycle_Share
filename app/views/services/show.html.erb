@@ -32,3 +32,35 @@ Owner: <%=  @service.user.profile.first_name %>
 </div>
 </div>
 
+<% if @service.user == current_user %>
+  <% @service.service_posts.each do |post| %>
+    <p>
+      <%= post.body %>
+      <%= post.user.email %>
+      <%= time_ago_in_words(post.created_at) %>
+    </p>
+  <% end %>
+
+  <hr>
+
+  <%= form_for([@service, ServicePost.new]) do |form| %>
+    <%= form.text_field :body %>
+    <%= form.submit %>
+  <% end %>
+<% else %>
+  <% @my_posts.each do |post| %>
+    <p>
+      <%= post.body %>
+      <%= post.user.email %>
+      <%= time_ago_in_words(post.created_at) %>
+    </p>
+  <% end %>
+
+  <hr>
+
+  <%= form_for([@service, ServicePost.new]) do |form| %>
+    <%= form.text_field :body %>
+    <%= form.submit %>
+  <% end %>
+<% end %>
+

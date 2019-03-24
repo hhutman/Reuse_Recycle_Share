@@ -2,6 +2,7 @@ class Service < ApplicationRecord
   include Rails.application.routes.url_helpers
   belongs_to :user
   has_one_attached :pic
+  has_many :service_posts
 
   def as_json(options={})
     {
