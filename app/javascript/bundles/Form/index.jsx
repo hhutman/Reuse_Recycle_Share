@@ -14,6 +14,7 @@ class Form extends Component {
     this.setState({ description: String(), more_information: String(), pic: String() })
   }
   render() {
+    console.log(this.props.type);
     const { description, more_information } = this.state
     const { toggleModal } = this.props;
     return (

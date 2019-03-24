@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Portal } from "react-portal";
 import axios from "axios";
+import Modal from '../Modal';
+import { headers } from '../config';
 
 class Building extends Component {
 
@@ -9,6 +10,7 @@ class Building extends Component {
     goods: [],
     services: [],
     isOpen: false,
+    type: String(),
   }
   async componentDidMount() {
     this.fetchResults(this.state.term)
@@ -27,12 +29,29 @@ class Building extends Component {
 
   toggleModal = _ => this.setState({ isOpen: !this.state.isOpen })
 
+  startCreate = type => e => {
+    this.setState({ type}, _ => {
+      this.toggleModal()
+    })
+  }
+
+  createItem = async itemData => {
+    const { type } = this.state
+    const { data } = await axios.post(`/${type}s.json`, itemData, { headers: headers })
+    this.toggleModal();
+    this.fetchResults(this.state.term);
+  }
+
   render() {
-    const { goods, services, isOpen } = this.state
+    const { goods, services, isOpen, type } = this.state
     return (
       <div>
        <div className = "search">
         <input placeholder="Search" onChange={this.handleInputChange} />
+        </div>
+        <div>
+          <button onClick={this.startCreate("good")}>Create Good!!!</button>
+          <button onClick={this.startCreate("service")}>Create Service!!</button>
         </div>
         <div id="goods-and-services">
           <div className="goods">
@@ -58,7 +77,7 @@ class Building extends Component {
             </ul>
           </div>
         </div>
-        <button onClick={this.toggleModal}>Open Modal</button>
+        <Modal createItem={this.createItem} isOpen={isOpen} type={type} toggleModal={this.toggleModal} />
       </div>
     );
 

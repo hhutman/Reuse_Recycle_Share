@@ -10,17 +10,18 @@ class GoodsController < ApplicationController
     @goods = Good.where(user: current_user.building.users)
     respond_to do |format|
       format.html
-      format.json do 
+      format.json do
         render json: {
           goods: @goods.map{|g|g.attributes.merge(image: url_for(g.user.profile.pic), ownerId: g.user.id)}
         }
       end
-    end 
+    end
   end
 
   # GET /goods/1
   # GET /goods/1.json
   def show
+    @my_posts = @good.good_posts.select{|p| p.user == current_user }
   end
 
   # GET /goods/new
@@ -30,7 +31,7 @@ class GoodsController < ApplicationController
 
   # GET /goods/1/edit
   def edit
-   
+
 
   end
 

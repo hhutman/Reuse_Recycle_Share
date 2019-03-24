@@ -7,11 +7,15 @@ Rails.application.routes.draw do
   # }  do
   #   authenticated :users do
   #     root 'users#index', as: :authenticated_root
-  #     buildings#index     
+  #     buildings#index
   #   end
-  resources  :goods
+  resources  :goods do
+    resources :good_posts, only: [:create]
+  end
   resources  :tasks
-  resources  :services
+  resources  :services do
+    resources :service_posts, only: [:create]
+  end
   devise_for :users
   resources  :profiles, only: [:show, :new, :create]
   resources  :buildings, only: [:show]
