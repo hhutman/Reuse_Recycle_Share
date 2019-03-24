@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
+<div class="alert alert-primary" role="alert"><%= notice %></div>
 
 <div class="container">
 
-<div class="col-xs-12 col-sm-offset-4 col-sm-4" style="float:left;background-color:#cfd1d1;padding:0px;border:solid 0px;">
 
 <div class="col-sm-4" style="float:left;border:solid 0px;height:150px;">
   <% if @good.pic.attached? %>
@@ -10,11 +9,8 @@
   <% end  %>
 </div>
 
-<div class="col-sm-7" style="float:left;border:solid 0px;height:150px;">
-<p style="font-size:20px;">
 
 </p>
-<p style="font-size:12px;background-color:#cfd1d1;">
   <%= @good.description %>
 </p>
 
@@ -23,15 +19,20 @@
   <%= @good.more_information %>
 </p>
 
+<div class="edit-back">
 <%if current_user.id == @good.user_id %>
   <%= link_to 'Edit', edit_good_path(@good) %> |
 <%end%>
 <%= link_to 'Back', goods_path %>
 </div>
-<div>Owner: <%=  @good.user.profile.first_name %></div>
-<div><%= link_to "Send this user a message", "/chats/show" %></div>
+
+
+</div class="owner">
+Owner: <%=  @good.user.profile.first_name %></div>
+<div>
+
+
+<div class="message">
+  <%= link_to "Send this user a message", "/chats/show" %></div>
 </div>
-<div class="col-md-3">
-  <%= render "chats/show" %>
-</div>
-</div> <!-- container -->
+
