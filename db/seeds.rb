@@ -26,8 +26,8 @@ p "Deleted old records, creating new records"
     profile.pic.attach(io: image, filename: "pic#{n}.jpg")
 
     3.times do
-      Good.create!(description: Faker::Food.dish, user: user)
-      Service.create!(description: Faker::Job.field, user: user)
+      Good.create!(description: ["Avocados", "Eggs", "Sugar", "Olive Oil", "Bread","Tools"].sample, user: user)
+      Service.create!(description: ["Walking the dog", "Painting", "Washing dishes", "Babysitting", "Cooking"].sample, user: user)
     end
   end
 end
