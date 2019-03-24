@@ -3,7 +3,7 @@ import { Portal } from "react-portal";
 import axios from "axios";
 
 class Building extends Component {
-    
+
   state = {
     term: '',
     goods: [],
@@ -47,26 +47,28 @@ class Building extends Component {
     const { goods, services, feed, isOpen } = this.state
     return (
       <div>
+       <div className = "search">
         <input placeholder="Search" onChange={this.handleInputChange} />
+        </div>
         <div id="goods-and-services">
           <div className="goods">
-            <h3>Goods</h3>
+            <h3 id="goods-and-services-title">Goods</h3>
             <ul>
               {goods.map(good => (
                 <li key={good.id}>
-                  <img src={good.owner_pic} width="75" />
-                  <a href={good.location}>{good.description}</a>
+                  <img src={good.owner_pic} width="25" className="pictureIcon" />
+                  <a href={good.location} className="gsDescription">{good.description}</a>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h3>Services</h3>
+            <h3 id="goods-and-services-title">Services</h3>
             <ul>
               {services.map(service => (
                 <li key={service.id}>
-                  <img src={service.owner_pic} width="75" />
-                  <a href={service.location}>{service.description}</a>
+                  <img src={service.owner_pic} width="25" className="pictureIcon" />
+                  <a href={service.location} className="gsDescription">{service.description} </a>
                 </li>
               ))}
             </ul>

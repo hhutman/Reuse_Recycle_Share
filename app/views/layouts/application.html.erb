@@ -35,7 +35,7 @@
           <% if current_user.profile %>
             <%#= current_user.email %>
             <%= link_to image_tag(current_user.profile.pic.attached? ? current_user.profile.pic : 'https://randomuser.me/api/portraits/med/lego/1.jpg',
-                class:"navbar-brand navbar-image", 
+                class:"navbar-brand navbar-image",
                 width: 35,
                 height: 35,
                 style: "border-radius: 100%; object-fit: cover;"),
