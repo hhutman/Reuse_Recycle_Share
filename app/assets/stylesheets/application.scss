@@ -14,7 +14,7 @@
   grid-gap: 10px;
   padding-top: 2rem;
   color:black;
-  
+
 }
 
 
@@ -22,10 +22,32 @@
   text-align: left;
   font-family: monospace;
   font-size: 1.75rem;
+  padding-top: 3rem;
+  
+}
+
+#goods-and-services-title1{
+  text-align: left;
+  font-family: monospace;
+  font-size: 1.75rem;
+  padding-bottom: 1rem;
+  margin-left: 0px;
+}
+
+.chat-button {
+  height: 40px;
+  width: 140px;
+  margin-bottom: 10px;
 }
 
 .gsDescription {
   padding-left: .5rem;
+}
+
+.gsbutton1 {
+  padding-bottom: 2rem;
+  display: list-item;
+
 }
 
 
@@ -90,8 +112,8 @@
 }
 
 .box {
+  text-align: center;
   background-color: white;
-  border: 1px grey solid;
 }
 
 
@@ -155,7 +177,6 @@ body {
 }
 
 .chat_buildingpage {
-
   margin-top: 200px;
   padding-right: 1.5rem;
 }
