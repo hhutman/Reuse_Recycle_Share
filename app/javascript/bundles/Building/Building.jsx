@@ -50,8 +50,8 @@ class Building extends Component {
         <input placeholder="Search" onChange={this.handleInputChange} />
         </div>
         <div className="homebuttons">
-          <button onClick={this.startCreate("good")}>Create Good!!!</button>
-          <button onClick={this.startCreate("service")}>Create Service!!</button>
+          <button onClick={this.startCreate("good")}>Add a Good</button>
+          <button onClick={this.startCreate("service")}>Add a Service</button>
         </div>
         <div id="goods-and-services">
           <div className="goods">
@@ -80,7 +80,6 @@ class Building extends Component {
         <Modal createItem={this.createItem} isOpen={isOpen} type={type} toggleModal={this.toggleModal} />
       </div>
     );
-
   }
 }
 
