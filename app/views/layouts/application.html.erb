@@ -27,33 +27,33 @@
   <body>
 
     <% if current_user && current_user.building %>
-      <div class="container">
-        <nav class="topnav">
-          <%= link_to "My Building", current_user.building, class:"navbar-brand" %>
-          <%# <%= link_to "Goods", goods_path, class:"navbar-brand" %>
-          <%# <%= link_to "Services", services_path, class:"navbar-brand" %> 
+      <nav class="topnav">
+        <%= link_to "My Building", current_user.building, class:"navbar-brand" %>
+        <%# <%= link_to "Goods", goods_path, class:"navbar-brand" %>
+        <%# <%= link_to "Services", services_path, class:"navbar-brand" %>
 
-          <% if current_user.profile %>
-            <%#= current_user.email %>
-            <%= link_to image_tag(current_user.profile.pic.attached? ? current_user.profile.pic : 'https://randomuser.me/api/portraits/med/lego/1.jpg',
-                class:"navbar-brand navbar-image",
-                width: 35,
-                height: 35,
-                style: "border-radius: 100%; object-fit: cover;"),
-                profile_path(current_user.profile)%>
-          <% end %>
-          <div class="logout">
-          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-          </div>
-        </nav>
-      </div>
+        <% if current_user.profile %>
+          <%#= current_user.email %>
+          <%= link_to image_tag(current_user.profile.pic.attached? ? current_user.profile.pic : 'https://randomuser.me/api/portraits/med/lego/1.jpg',
+              class:"navbar-brand navbar-image",
+              width: 35,
+              height: 35,
+              style: "border-radius: 100%; object-fit: cover;"),
+              profile_path(current_user.profile)%>
+        <% end %>
+        <div class="logout">
+        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+        </div>
+      </nav>
     <% end %>
 
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
     <% if current_user && current_user.building%>
       <footer class="footer">
       <div class="text-center center-block footer-contents">  
-        <h3> Cup of Sugar &copy; </h3>
+        <h3 id="footer-text"> Cup of Sugar &copy; </h3>
         <a href="https://www.facebook.com/wyncode/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
 	      <a href="https://twitter.com/wyncode"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
 	      <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
