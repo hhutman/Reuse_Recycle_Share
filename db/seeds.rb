@@ -7,11 +7,32 @@ Building.destroy_all
 
 
 p "Deleted old records, creating new records"
-5.times do
-  building = Building.create!(
-    building_name: ["One Paraiso", "Icon Brickell", "Maria", "Asia", "Grove at Grand Bay"].sample,
-    address: ["3131 NE 7th Avenue", "465 Brickell Ave", "1643 Brickell Ave", "900 Brickell Key Blvd", "2669 S Bayshore Dr"].sample,
-  )
+
+buildings = [
+  {
+    building_name: "One Paraiso",
+    address: "3131 NE 7th Avenue"
+  },
+  {
+    building_name: "Icon Brickell",
+    address: "465 Brickell Ave"
+  },
+  {
+    building_name: "Maria",
+    address: "1643 Brickell Ave"
+  },
+  {
+    building_name: "Asia",
+    address: "900 Brickell Key Blvd"
+  },
+  {
+    building_name: "Grove at Grand Bay",
+    address: "2669 S Bayshore Dr"
+  }
+]
+
+5.times do |b|
+  building = Building.create!(buildings[b])
   5.times do |n|
     user = User.create!(
       first_name: Faker::Name.first_name,

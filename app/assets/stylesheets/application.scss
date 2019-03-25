@@ -27,15 +27,17 @@
   font-family: monospace;
   font-size: 1.75rem;
   padding-bottom: 1rem;
-  text-align: center; 
+  text-align: center;
+  margin: 0px;
+  width: 100%;
 }
 
-.container {
-  margin: 0 auto;
-  max-width: 36em;
-  padding: 2em 0 0;
-  display: inline;
-}
+// .container {
+//   margin: 0 auto;
+//   max-width: 36em;
+//   padding: 2em 0 0;
+//   display: inline;
+// }
 
 .topnav {
   overflow: hidden;
@@ -62,11 +64,11 @@
   color: white;
 }
 
-.chat {
-  height: 20em;
-  width: 70%;
-  padding-left: 10em;
-}
+// .chat {
+//   height: 20em;
+//   width: 70%;
+//   padding-left: 10em;
+// }
 
 .messages {
   border: 1px solid rgba(0, 0, 0, .1);
@@ -189,7 +191,9 @@
   bottom: 0;
   width: 100%;
 }
-
+#footer-text{
+  color:#f2f2f2 !important;
+}
 .footer a {
   float: center;
   color: #f2f2f2;
@@ -210,6 +214,8 @@ h3 {
   margin-left: 27%;
   margin-right: 33%;
 }
+
+
 
 #social-fb:hover {
      color: #3B5998;
