@@ -50,7 +50,7 @@
     <div>
       <%= yield %>
     </div>
-    <% if current_user && current_user.building%>
+    <% if current_user && current_user.building && !controller_name.in?(["goods", "services", "profiles", "histories"]) %>
       <footer class="footer">
       <div class="text-center center-block footer-contents">  
         <h3 id="footer-text"> Cup of Sugar &copy; </h3>
