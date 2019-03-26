@@ -2,8 +2,6 @@
   <div class="alert alert-primary" role="alert"><%= notice %></div>
 <% end %>
 
-
-
   <% if @good.pic.attached? %>
     <%= image_tag @good.pic, style: "width: 300px;" %>
   <% end  %>
@@ -48,7 +46,6 @@
       </p>
     <% end %>
     <hr>
-
     <%= form_for([@good, GoodPost.new]) do |form| %>
       <%= form.text_field :body %>
       <%= form.submit %>

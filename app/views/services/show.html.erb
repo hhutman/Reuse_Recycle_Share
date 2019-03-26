@@ -2,33 +2,26 @@
   <div class="alert alert-primary" role="alert"><%= notice %></div>
 <% end %>
 
-<div class="container">
-
-<div class="col-sm-4" style="float:left;border:solid 0px;height:150px;">
   <% if @service.pic.attached? %>
-    <%= image_tag @service.pic %>    
+    <%= image_tag @service.pic, style: "width: 300px;" %>    
   <% end  %>
-</div>
 
 </p>
   <%= @service.description %>
 </p>
-
 <p>
   <strong>More information:</strong>
   <%= @service.more_information %>
 </p>
 <div>
-<%if current_user.id == @service.user_id %>
-  <%= link_to 'Edit', edit_service_path(@service) %> |
-<%end%>
-<%= link_to 'Back', services_path %>
+  <%if current_user.id == @service.user_id %>
+    <%= link_to 'Edit', edit_service_path(@service) %> |
+  <%end%>
+  <%= link_to 'Back', services_path %>
 </div>
 
 <div>
 Owner: <%=  @service.user.profile.first_name %>
-</div>
-
 </div>
 
 <% if @service.user == current_user %>
@@ -54,9 +47,7 @@ Owner: <%=  @service.user.profile.first_name %>
       <%= time_ago_in_words(post.created_at) %>
     </p>
   <% end %>
-
   <hr>
-
   <%= form_for([@service, ServicePost.new]) do |form| %>
     <%= form.text_field :body %>
     <%= form.submit %>
