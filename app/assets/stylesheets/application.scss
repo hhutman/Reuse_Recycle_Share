@@ -32,12 +32,12 @@
   width: 100%;
 }
 
-// .container {
-//   margin: 0 auto;
-//   max-width: 36em;
-//   padding: 2em 0 0;
-//   display: inline;
-// }
+.container {
+  margin: 0 auto;
+  max-width: 36em;
+  padding: 2em 0 0;
+  display: inline;
+}
 
 .topnav {
   overflow: hidden;
@@ -153,8 +153,12 @@
 }
 
 .body {
-  margin: 0;
+  margin: 0px;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.body-signin {
+
 }
 
 .navbar-image{
@@ -209,10 +213,30 @@
 }
 
 h3 {
-  text-align: center;
+
   color: black;
-  margin-left: 27%;
-  margin-right: 33%;
+  margin-left: 500px;
+  font-size: 1.45rem;
+}
+
+
+
+#main-title_password{
+  font-family: shookup;
+  font-size: 62px;
+  text-align:center;
+  color:black;
+
+}
+
+#subtitle_password{
+  margin-left: 680px;
+
+}
+
+.actions-password {
+  align-items: left;
+
 }
 
 
