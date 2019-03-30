@@ -5,15 +5,20 @@
 @import 'goods';
 @import 'services';
 
-
-#goods-and-services{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
-  padding-top: 2rem;
-  color:black;
+body {
+  background-color: #CBC5CA;
+  height: 100%;
 
 }
+
+// #goods-and-services{
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   grid-gap: 10px;
+//   padding-top: .50rem;
+//   color:black;
+//
+// }
 
 #goods-and-services-title{
   text-align: left;
@@ -32,12 +37,12 @@
   width: 100%;
 }
 
-// .container {
-//   margin: 0 auto;
-//   max-width: 36em;
-//   padding: 2em 0 0;
-//   display: inline;
-// }
+.building_container {
+  margin: 0 auto;
+   max-width: 36em;
+   padding: 2em 0 0;
+   display: inline;
+ }
 
 .topnav {
   overflow: hidden;
@@ -71,7 +76,7 @@
 // }
 
 .messages {
-  border: 1px solid rgba(0, 0, 0, .1);
+  border-style: solid;
   border-radius: 3px;
   height: 10em;
   margin: 0 0 .5em;
@@ -152,10 +157,7 @@
   100% { transform: translate(-50%, -50%); }
 }
 
-.body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
+
 
 .navbar-image{
   border-radius: 5px 20px 5px;
@@ -176,37 +178,20 @@
    margin-left: 20%;
    margin-right: 20%;
    padding-top: 1.75rem;
+   border-color: #33333;
 }
 
-.chat_buildingpage {
-  margin-top: 200px;
-  padding-right: 1.5rem;
-}
+// .chat_buildingpage {
+//   margin-top: 200px;
+//   padding-right: 1.5rem;
+//   border-style: solid;
+//   border-color: black;
+// }
 
-.footer {
-  background-color: #333;
-  height: 80px;
-  overflow: hidden;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-#footer-text{
-  color:#f2f2f2 !important;
-}
-.footer a {
-  float: center;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 1px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
 
-.footer a.active {
-  background-color: #333;
-  color: white;
-}
+
+
+
 
 h3 {
   text-align: center;
@@ -214,22 +199,3 @@ h3 {
   margin-left: 27%;
   margin-right: 33%;
 }
-
-
-
-#social-fb:hover {
-     color: #3B5998;
- }
-#social-tw:hover {
-     color: #4099FF;
- }
-#social-em:hover {
-     color: #f39c12;
- }
-
-.footer-contents {
-   margin: auto;
-   width: 30%;
-   margin-left: 33%;
-   margin-right: 33%;
- }

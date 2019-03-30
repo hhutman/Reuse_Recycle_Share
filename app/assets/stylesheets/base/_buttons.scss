@@ -3,7 +3,7 @@ $_button-background-color-hover: shade($action-color, 20%);
 
 #{$all-buttons} {
   appearance: none;
-  background-color: $_button-background-color;
+  background-color: #3333;
   border: 0;
   margin: 16px;
   border-radius: $base-border-radius;

@@ -46,9 +46,9 @@ buildings = [
     image = open(url)
     profile.pic.attach(io: image, filename: "pic#{n}.jpg")
 
-    3.times do
-      Good.create!(description: ["Avocados", "Eggs", "Sugar", "Olive Oil", "Bread"," Tools", "Spices"].sample, user: user)
-      Service.create!(description: ["Walking the dog", "Painting", "Washing dishes", "Babysitting", "Cooking", "Baking"].sample, user: user)
+    1.times do
+      Good.create!(description: ["Avocados  I have extra, LMK if you want them", "Camping Equipment  We're going camping June 8-9 and need a tent for the kids.", "Tools  Our dining room table leg is loose.  Can anyone lend me some tools for the afternoon?", "6 year-old birthday party favors  We have leftover party favors that I don't want to throw away, any takers?", "Beach Chairs My mother-in-law bought us two new ones.  Anyone want the two extra we have now.  They're in good shape"].sample, user: user)
+      Service.create!(description: ["Any dog walkers in the building?", "Piano Lessons, I have been teaching piano for five years.  Lessons for adults or kids. ", "Math and Science Tutor  I am 15-year-old highschool sophomore.  I'm taking Calculus and Physics this year.", "I need a mother's helper to hang with the kids while I make dinner.  Any middle school/high school neighbors free from 5-6 a couple of nights a week?", "Cooking  I love to cook.  Anyone interested in a cooking club once a month?"].sample, user: user)
     end
   end
 end
