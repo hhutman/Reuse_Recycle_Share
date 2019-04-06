@@ -4,11 +4,11 @@
       R<span style="color:white">e</span>u<span style="color:yellow">s</span>e, Re<span style="color:yellow">c</span>ycle, <span style="color:yellow">S</span>hare <span style="color:yellow">Co</span>mmunit<span style="color:yellow">y</span> <span style="color:white">List</span>
     </header> -->
     <div class="signin_page">
-    <header id="main-title" style="color:black">Cup Of Sugar</header>
-    <h3>Reuse, Recycle, Share, Community List</h3>
+    <header id="main-title">Cup Of Sugar</header>
+    <div id="signin_sub-title">Reuse, Recycle, Share, Community List</div>
 
 
-    <div class = "hp_signin">
+    <div class = "hp_signin" style="border-style:solid; border-color:black;">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
           <%= f.label :email %>
